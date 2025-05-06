@@ -1,0 +1,95 @@
+/* Import Anonymous Pro font */
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+
+html {
+  font-size: 16px; /* Reduced base font size */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #f63e3e;
+  font-family: 'Anonymous Pro', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  line-height: 1.5; /* Slightly reduced line spacing */
+}
+
+.container {
+  text-align: center;
+  padding: 20px; /* Reduced padding */
+  max-width: 800px;
+  width: 100%;
+}
+
+.title {
+  font-size: 2.5rem; /* Slightly reduced font size */
+  margin-bottom: 0.75em;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.subtitle {
+  font-size: 1.25rem; /* Slightly reduced font size */
+  margin-bottom: 1em;
+  animation: fadeIn 2s ease-in-out 0.5s;
+  animation-fill-mode: both;
+}
+
+ul {
+  list-style-position: inside; /* Align bullets with text */
+  padding-left: 0;
+  margin-bottom: 1.5em; /* Reduced bottom margin */
+}
+
+.download-widget {
+  margin: 2em 0; /* Reduced vertical margin */
+  animation: fadeIn 2s ease-in-out 1s;
+  animation-fill-mode: both;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5em 1em; /* Reduced padding */
+  border: 2px solid #f63e3e;
+  color: #f63e3e;
+  text-decoration: none;
+  font-size: 1rem; /* Reduced font size */
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  animation: fadeIn 2s ease-in-out 1.5s;
+  animation-fill-mode: both;
+  margin: 0.5em 0; /* Reduced vertical margin */
+}
+
+.button:hover {
+  background-color: #f63e3e;
+  color: #121212;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  html {
+    font-size: 14px; /* Reduced base font size for small screens */
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .download-widget iframe {
+    width: 100%;
+    height: auto;
+  }
+}
