@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -22,18 +22,18 @@
 <body>
   <!-- Hero Section -->
   <section class="hero">
-    <video autoplay muted loop>
-      <source src="background.mp4" type="video/mp4" />
-      Your browser does not support video.
+    <video autoplay muted loop preload="auto">
+      <source src="./background.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
     </video>
-    <div class="video-overlay"></div> <!-- Overlay to darken video -->
+    <div class="video-overlay"></div>
     <div class="overlay">
-      <img src="logo.png" alt="Logo" class="logo" />
+      <img src="./logo.png" alt="Logo" class="logo" />
       <h1 class="title">Anastasis Marinos</h1>
       <p class="fade-text">Game Developer</p>
       <p class="fade-text">
-        <i class="fa-solid fa-birthday-cake"></i>20
-        <i class="fa-solid fa-location-dot"></i>Greece
+        <i class="fa-solid fa-birthday-cake"></i> 20
+        <i class="fa-solid fa-location-dot"></i> Greece
       </p>
     </div>
     <div class="scroll-down">
@@ -46,13 +46,13 @@
     <h2 class="fade-text">My Projects</h2>
     <div class="grid fade-text">
       <div class="project-card">
-        <img src="game1-thumb.jpg" alt="Game 1" />
+        <img src="./game1-thumb.jpg" alt="Game 1" />
         <h3>Subway Horror</h3>
         <p>Psychological horror where you're a subway operator in a dystopian city.</p>
         <a href="#">Play on Itch.io</a>
       </div>
       <div class="project-card">
-        <img src="game2-thumb.jpg" alt="Game 2" />
+        <img src="./game2-thumb.jpg" alt="Game 2" />
         <h3>Martial Peak</h3>
         <p>Peaceful fighting platformer set in the Asian mountains.</p>
         <a href="#">Learn More</a>
@@ -61,6 +61,6 @@
   </section>
 
   <!-- JavaScript -->
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
