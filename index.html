@@ -3,20 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bad By Daylight</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
+  <title>Anastasis Marinos</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1 class="title">Bad By Daylight</h1>
-    <p class="subtitle">Dead By Daylight But Bad.</p>
-    <div class="download-widget">
-      <iframe frameborder="0" src="https://itch.io/embed/3479663?border_width=3&amp;bg_color=161616&amp;fg_color=f63e3e&amp;link_color=e14848&amp;border_color=f63e3e" width="556" height="171">
-        <a href="https://anastasismarinos.itch.io/badbydaylight">Bad By Daylight by Anastasis Marinos</a>
-      </iframe>
+  <!-- Hero Section -->
+  <section class="hero">
+    <video autoplay muted loop>
+      <source src="background.mp4" type="video/mp4" />
+      Your browser does not support video.
+    </video>
+    <div class="video-overlay"></div> <!-- Overlay to darken video -->
+    <div class="overlay">
+      <img src="logo.png" alt="Logo" class="logo" />
+      <h1 class="title">Anastasis Marinos</h1>
+      <p class="fade-text">Game Developer</p>
+      <p class="fade-text">
+        <i class="fa-solid fa-birthday-cake"></i>20
+        <i class="fa-solid fa-location-dot"></i>Greece
+      </p>
     </div>
-    <a href="privacy.html" class="button">Privacy Policy</a>
-  </div>
+    <div class="scroll-down">
+      <a href="#projects">↓ My Projects</a>
+    </div>
+  </section>
+
+  <!-- Project Section -->
+  <section class="projects" id="projects">
+    <h2 class="fade-text">My Projects</h2>
+    <div class="grid fade-text">
+      <div class="project-card">
+        <img src="game1-thumb.jpg" alt="Game 1" />
+        <h3>Subway Horror</h3>
+        <p>Psychological horror where you're a subway operator in a dystopian city.</p>
+        <a href="#">Play on Itch.io</a>
+      </div>
+      <div class="project-card">
+        <img src="game2-thumb.jpg" alt="Game 2" />
+        <h3>Martial Peak</h3>
+        <p>Peaceful fighting platformer set in the Asian mountains.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
