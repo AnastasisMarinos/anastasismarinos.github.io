@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anastasis Marinos</title>
+  <link rel="icon" href="./assets/images/logo.png" type="image/png" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet" />
@@ -20,15 +21,35 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
+  <!-- Header -->
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-left">
+      </div>
+      <div class="header-center">
+        <nav class="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#footer">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-right"></div> <!-- Empty for alignment -->
+    </div>
+  </header>
+
   <!-- Hero Section -->
   <section class="hero">
     <video autoplay muted loop preload="auto">
-      <source src="./background.mp4" type="video/mp4" />
+      <source src="./assets/videos/background.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <div class="video-overlay"></div>
     <div class="overlay">
-      <img src="./logo.png" alt="Logo" class="logo" />
+      <img src="./assets/images/logo.png" alt="Logo" class="logo" />
       <h1 class="title">Anastasis Marinos</h1>
       <p class="fade-text">Game Developer</p>
       <p class="fade-text">
@@ -53,12 +74,42 @@
       </div>
       <div class="project-card">
         <img src="./game2-thumb.jpg" alt="Game 2" />
-        <h3>Martial Peak</h3>
-        <p>Peaceful fighting platformer set in the Asian mountains.</p>
+        <h3>Bad By Daylight</h3>
+        <p>A Dead By Daylight Demake.</p>
+        <p>Made in a month.</p>
         <a href="#">Learn More</a>
       </div>
     </div>
   </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-left">
+      <p>© 2025 Anastasis Marinos.</p>
+      <p>All rights reserved.</p>
+    </div>
+    <div class="footer-center">
+      <div class="icons-container">
+        <a href="https://anastasismarinos.itch.io" target="_blank" rel="noopener" aria-label="Itch.io">
+          <i class="fab fa-itch-io"></i>
+        </a>
+        <a href="https://github.com/AnastasisMarinos" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/anastasis-marinos-229a73261" target="_blank" rel="noopener" aria-label="LinkedIn">
+         <i class="fab fa-linkedin"></i>
+     </a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <form action="https://formspree.io/f/xanovkyp" method="POST" class="contact-form">
+      <input type="email" name="email" placeholder="you@example.com" required>
+      <textarea name="message" placeholder="Your message..." required></textarea>
+      <button type="submit">Contact Me</button>
+  </form>
+</div>
+</footer>
 
   <!-- JavaScript -->
   <script src="./script.js"></script>
