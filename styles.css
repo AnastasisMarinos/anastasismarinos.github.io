@@ -253,15 +253,14 @@ body {
 .projects {
   background-color: var(--bg-color);
   color: var(--projects-heading-color);
-  padding: 100px 40px;
+  padding: 80px 40px;
   text-align: center;
 }
 
 .projects h2 {
   font-size: 2.5rem;
-  margin-bottom: 60px;
-  color: var(--project-title-color);
-  text-shadow: 0 0 15px var(--projects-glow);
+  margin-bottom: 80px;
+  color: var(--link-color);
 }
 
 /* Grid Layout */
@@ -366,7 +365,6 @@ body {
 
 /* ========== About Section ========== */
 .about {
-  padding: 100px 0;
   background-color: var(--bg-color);
   color: var(--text-color);
   text-align: center;
@@ -374,15 +372,16 @@ body {
 
 .about h2 {
   font-size: 2.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   color: var(--link-color);
 }
 
 .about-text {
   max-width: 800px;
   margin: 0 auto 60px auto;
+  margin-bottom: 8em; /* adds vertical space between paragraphs */
+  line-height: 1.8;     /* improves readability */
   font-size: 1.1rem;
-  line-height: 1.8;
   color: var(--project-text-color-light);
 }
 
