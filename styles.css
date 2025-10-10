@@ -1,26 +1,47 @@
-/* ========== Theme Variables ========== */
+/* ========== Theme Variables (only colors + fonts) ========== */
 :root {
-  --bg-color: #1a1a1a;
+  /* Core colors: Dark purple + aqua theme */
+  --bg-color: #0f0716;
   --text-color: #a47ebd;
-  --overlay-bg: rgba(0, 0, 0, 0.8);
+  --overlay-bg: rgba(8, 4, 20, 0.75);
   --overlay-blur: 10px;
-  --project-bg: #1a1a1a;
+
+  /* Projects / cards */
+  --project-bg: rgba(20, 15, 30, 0.9);              /* card surface */
   --project-text-color-dark: #111;
   --project-text-color-light: #ebe3f0;
-  --project-card-bg: #ebe3f0;
-  --project-card-shadow: rgba(0, 0, 0, 0.1);
-  --link-color: #a47ebd;
-  --scroll-down-color: white;
+  --project-card-bg: rgba(20, 15, 30, 0.9);
+  --project-border: rgba(184, 146, 248, 0.2);
+  --project-card-shadow: rgba(127, 60, 255, 0.2);
+  --project-card-shadow-hover: rgba(127, 60, 255, 0.4);
+  --project-title-color: #b892f8;
+  --projects-heading-color: #e9d9f9;
+  --projects-glow: rgba(184, 146, 248, 0.3);
 
-  --footer-bg: #121212;
+  /* Accents */
+  --link-color: #00e0ff;          /* aqua */
+  --accent-purple: #7f3cff;
+  --accent-aqua: #00e0ff;
+
+  /* small misc */
+  --scroll-down-color: #ffffff;
+
+  /* Footer */
+  --footer-bg: #0b0612;
   --footer-text: #a47ebd;
-  --footer-link: #a47ebd;
-  --footer-link-hover: #78598d;
+  --footer-link: #78598d;
+  --footer-link-hover: #00e0ff;
   --footer-input-bg: #222;
-  --footer-input-border: #444;
-  --footer-input-placeholder: #888;
+  --footer-input-border: #3a2a5a;
+  --footer-input-placeholder: #8f7db8;
 
-  /* Added font-family variable */
+  /* overlay card backgrounds (used where previously hard-coded) */
+  --overlay-card-bg: rgba(10, 6, 25, 0.35);
+
+  /* logo/header glow */
+  --logo-glow: rgba(127, 60, 255, 0.6);
+
+  /* font */
   --font-family: 'Inconsolata', monospace;
 }
 
@@ -32,14 +53,16 @@
   }
 }
 
-/* Light theme override */
+/* Light theme override (only color vars changed) */
 .theme-light {
   --bg-color: #ffffff;
   --text-color: #5a2a6a;
   --overlay-bg: rgba(255, 255, 255, 0.6);
   --project-bg: #fafafa;
-  --project-text-color: #222;
+  --project-text-color-dark: #222;
+  --project-text-color-light: #222;
   --project-card-bg: #fff;
+  --project-border: rgba(0,0,0,0.05);
   --project-card-shadow: rgba(0, 0, 0, 0.05);
   --link-color: #7b3fa0;
   --scroll-down-color: #333;
@@ -50,9 +73,6 @@
   --footer-input-bg: #eee;
   --footer-input-border: #ccc;
   --footer-input-placeholder: #aaa;
-
-  /* Optional: override font for light theme */
-  /* --font-family: 'Arial', sans-serif; */
 }
 
 /* ========== Reset & Base Styles ========== */
@@ -118,7 +138,7 @@ body {
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid var(--text-color);
-  box-shadow: 0 0 8px rgba(246, 62, 62, 0.6);
+  box-shadow: 0 0 8px var(--logo-glow);
 }
 
 .nav ul {
@@ -142,7 +162,6 @@ body {
 .nav ul li a:hover {
   color: var(--footer-link-hover);
 }
-
 
 /* ========== Hero Section ========== */
 .hero {
@@ -185,14 +204,14 @@ body {
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid var(--text-color);
-  box-shadow: 0 0 8px rgba(246, 62, 62, 0.6);
+  box-shadow: 0 0 8px var(--logo-glow);
 }
 
 /* ========== Overlay Content ========== */
 .overlay {
   position: relative;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--overlay-card-bg);
   padding: 2rem;
   border-radius: 12px;
   backdrop-filter: blur(var(--overlay-blur));
@@ -232,8 +251,8 @@ body {
 
 /* ========== Projects Section ========== */
 .projects {
-  background-color: #0a0810;
-  color: #e9d9f9;
+  background-color: var(--bg-color);
+  color: var(--projects-heading-color);
   padding: 100px 40px;
   text-align: center;
 }
@@ -241,8 +260,8 @@ body {
 .projects h2 {
   font-size: 2.5rem;
   margin-bottom: 60px;
-  color: #b892f8;
-  text-shadow: 0 0 15px rgba(184, 146, 248, 0.3);
+  color: var(--project-title-color);
+  text-shadow: 0 0 15px var(--projects-glow);
 }
 
 /* Grid Layout */
@@ -256,11 +275,11 @@ body {
 
 /* Project Card */
 .project-card {
-  background: rgba(20, 15, 30, 0.9);
+  background: var(--project-card-bg);
   border-radius: 15px;
   overflow: hidden;
-  border: 1px solid rgba(184, 146, 248, 0.2);
-  box-shadow: 0 0 15px rgba(127, 60, 255, 0.2);
+  border: 1px solid var(--project-border);
+  box-shadow: 0 0 15px var(--project-card-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -268,7 +287,7 @@ body {
 
 .project-card:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 0 25px rgba(127, 60, 255, 0.4);
+  box-shadow: 0 0 25px var(--project-card-shadow-hover);
 }
 
 .project-card img {
@@ -290,7 +309,7 @@ body {
 
 .project-content h3 {
   font-size: 1.4rem;
-  color: #b892f8;
+  color: var(--project-title-color);
   margin-bottom: 10px;
   position: relative;
 }
@@ -301,27 +320,27 @@ body {
   width: 40px;
   height: 3px;
   margin: 8px auto 0;
-  background: linear-gradient(90deg, #7f3cff, #00e0ff);
+  background: linear-gradient(90deg, var(--accent-purple), var(--accent-aqua));
   border-radius: 3px;
 }
 
 .project-content p {
   font-size: 0.95rem;
-  color: #cfc3e6;
+  color: var(--project-text-color-light);
   line-height: 1.5;
   margin-bottom: 15px;
 }
 
 .project-content a {
   display: inline-block;
-  color: #00e0ff;
+  color: var(--accent-aqua);
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .project-content a:hover {
-  color: #b892f8;
+  color: var(--project-title-color);
 }
 
 /* ========== Responsive Adjustments ========== */
@@ -356,7 +375,7 @@ body {
 .about h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
-  color: var(--text-color);
+  color: var(--link-color);
 }
 
 .about-text {
@@ -364,7 +383,7 @@ body {
   margin: 0 auto 60px auto;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--text-color);
+  color: var(--project-text-color-light);
 }
 
 .about-text a {
@@ -388,7 +407,7 @@ body {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 40px;
-  color: var(--text-color);
+  color: var(--link-color);
 }
 
 /* Two-column layout */
@@ -421,7 +440,7 @@ body {
   margin-bottom: 8px;
   font-weight: bold;
   font-size: 1rem;
-  color: var(--text-color);
+  color: var(--project-text-color-light);
 }
 
 .progress-bar {
