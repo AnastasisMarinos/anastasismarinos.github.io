@@ -27,3 +27,16 @@ gsap.utils.toArray(".fade-text").forEach((elem) => {
     }
   );
 });
+
+var prevScrollpos = window.pageYOffset;
+var header = document.querySelector(".header"); // safer than getElementById
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (!header) return; // safeguard
+  if (prevScrollpos > currentScrollPos) {
+    header.style.top = "0";
+  } else {
+    header.style.top = "-80px";
+  }
+  prevScrollpos = currentScrollPos;
+};
