@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anastasis Marinos</title>
+  <link rel="icon" href="../assets/images/logo.png" type="image/png" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="./pages/about.html">About</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container fade-text">
+      <h2>About Me</h2>
+      <div class="about-text">
+        <p>
+          Hey! I’m <strong>Anastasis Marinos</strong>, a 20-year-old game developer from Greece.  
+          I’m passionate about building immersive, story-driven experiences. I mainly work in Unreal Engine, combining retro and stylized visuals—inspired by PSX-era aesthetics—with strong atmosphere and narrative design.
+        </p>
+        <br>
+        <p>
+          Alongside development, I use Blender for 3D work and FL Studio to create sound effects and music. I enjoy being involved in every layer of a project, shaping both the look and feel of the worlds I build.
+        </p>
+        <br>
+        <p>
+          I’m currently expanding my skills by studying filmmaking and storytelling, aiming to understand how cinematic techniques translate into interactive experiences. My goal is to eventually work as a game director, leading projects that blend visual style, sound, and narrative into cohesive and memorable games.
+        </p>
+        <br>
+        <p>
+          I’m passionate about games that make players feel something—whether through atmosphere, story, or style—and I’m always exploring new ways to bring that to life.
+        </p>
+        <br>
+        <p>
+          I’m always open to collaborations or freelance work.
+        </p>
+        <p><a href="#footer">reach out</a>!</p>
+      </div>
+
+      <div class="skills">
+        <h3>Skills & Experience</h3>
+
+        <div class="skills-grid">
+          <!-- Left Column - Game Dev Skills -->
+          <div class="skills-column">
+            <h4>Game Development</h4>
+
+            <div class="skill">
+              <span>Unreal Engine</span>
+              <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            </div>
+
+            <div class="skill">
+              <span>Blueprints & C++</span>
+              <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+            </div>
+
+            <div class="skill">
+              <span>Game Design & Prototyping</span>
+              <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+            </div>
+
+            <div class="skill">
+              <span>Engine Tools</span>
+              <div class="progress-bar"><div class="progress" style="width: 35%;"></div></div>
+            </div>
+          </div>
+
+          <!-- Right Column - Other Skills -->
+          <div class="skills-column">
+            <h4>Other Skills</h4>
+
+            <div class="skill">
+              <span>Game Directing</span>
+              <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
+            </div>
+
+            <div class="skill">
+              <span>Sound Design</span>
+              <div class="progress-bar"><div class="progress" style="width: 60%;"></div></div>
+            </div>
+
+            <div class="skill">
+              <span>Blender / 3D Art</span>
+              <div class="progress-bar"><div class="progress" style="width: 40%;"></div></div>
+            </div>
+
+            <div class="skill">
+              <span>Cinematography</span>
+              <div class="progress-bar"><div class="progress" style="width: 25%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-left">
+      <p>© 2025 Anastasis Marinos.</p>
+      <p>All rights reserved.</p>
+    </div>
+    <div class="footer-center">
+      <div class="icons-container">
+        <a href="https://anastasismarinos.itch.io" target="_blank" rel="noopener" aria-label="Itch.io">
+          <i class="fab fa-itch-io"></i>
+        </a>
+        <a href="https://github.com/AnastasisMarinos" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/anastasis-marinos-229a73261" target="_blank" rel="noopener" aria-label="LinkedIn">
+         <i class="fab fa-linkedin"></i>
+     </a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <form action="https://formspree.io/f/xanovkyp" method="POST" class="contact-form">
+      <input type="email" name="email" placeholder="im.cool@mail.com" required>
+      <textarea name="message" placeholder="Cool message..." required></textarea>
+      <button type="submit">Contact Me!</button>
+  </form>
+</div>
+</footer>
+
+  <!-- JavaScript -->
+  <script src="../script.js"></script>
+</body>
+</html>
