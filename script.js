@@ -40,3 +40,42 @@ window.onscroll = function() {
   }
   prevScrollpos = currentScrollPos;
 };
+
+// Hamburger menu toggle
+(() => {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (!hamburger || !navLinks) return;
+
+  const body = document.body;
+  const links = navLinks.querySelectorAll('a');
+
+  const closeMenu = () => {
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('open');
+    body.classList.remove('no-scroll');
+    hamburger.setAttribute('aria-expanded', 'false');
+  };
+
+  const openMenu = () => {
+    navLinks.classList.add('active');
+    hamburger.classList.add('open');
+    body.classList.add('no-scroll');
+    hamburger.setAttribute('aria-expanded', 'true');
+  };
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.contains('active');
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Close on navigation
+  links.forEach((a) => a.addEventListener('click', closeMenu));
+
+  // Reset on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      closeMenu();
+    }
+  });
+})();

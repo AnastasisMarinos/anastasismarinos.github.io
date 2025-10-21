@@ -15,18 +15,25 @@
   <!-- Header -->
   <header class="header">
     <div class="container">
-      <div class="header-left"></div>
-      <div class="header-center">
-        <nav class="nav">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#projects">Projects</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#footer">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="header-right"></div>
+      <!-- Logo (left) -->
+      <a href="../../index.html#hero" class="header-logo-link">
+        <img src="../../assets/images/logo.png" alt="Logo" class="header-logo">
+      </a>
+
+      <!-- Navigation (right) -->
+      <nav class="nav">
+        <ul class="nav-links" id="primary-navigation">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../../index.html#footer">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" aria-label="Menu" aria-controls="primary-navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -92,5 +99,8 @@
       </div>
     </div>
   </footer>
+
+  <!-- JavaScript -->
+  <script src="../../script.js"></script>
 </body>
 </html>

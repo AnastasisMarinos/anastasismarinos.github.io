@@ -50,24 +50,132 @@ body
   line-height: 1.5;
 }
 
+/* Header base styles */
 .header {
   background-color: var(--bg-accent);
   color: var(--link-color);
-  padding: 10px 20px;
-  font-family: var(--font-family);
+  padding: 20px 20px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
-  transition: top 0.5s;
+  transition: top 0.5s, background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-family);
 }
 
 .header .container {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between; /* was center */
+  position: relative;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 12px;
+  width: 100%;
+}
+
+/* Position the logo absolutely so it doesn’t push nav */
+.header-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.header-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--text-color);
+  box-shadow: 0 0 8px var(--glow-normal);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px var(--glow-hover);
+}
+
+/* Nav centered */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* was center */
+  flex: 1;
+}
+
+/* Hamburger menu - hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  /* Reset default button styles */
+  background: transparent;
+  border: 0;
+  padding: 4px;
+  margin: 0;
+  line-height: 1;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.hamburger:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 4px;
+  background: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/* Transform to X when open */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Prevent body scroll when mobile menu open */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* ========== Mobile Styles ========== */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 60px; /* below header */
+    right: -100%; /* hide offscreen */
+    width: 200px;
+    height: calc(100% - 60px);
+    background-color: var(--bg-accent);
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 40px;
+    transition: right 0.3s ease;
+    z-index: 99;
+  }
+
+  .nav-links.active {
+    right: 0; /* slide in */
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }
 
 .nav ul {
@@ -527,6 +635,8 @@ body
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%;
+  max-width: 250px; /* wider on desktop */
 }
 
 .contact-form input,
@@ -579,6 +689,13 @@ body
   }
   .footer-right {
     width: 100%;
+    justify-content: center; /* center the form horizontally */
+  }
+  .contact-form {
+    width: 100%;
+    max-width: 250px; /* constrain width for nicer look */
+    margin: 0 auto;   /* center within container */
+    align-items: stretch;
   }
   .contact-form input,
   .contact-form textarea {
