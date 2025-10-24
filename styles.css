@@ -20,6 +20,16 @@
   --video-blur: 10px;
 
   --font-family: 'Lexend', sans-serif;
+  color-scheme: dark; /* hint UA for dark form controls, scrollbars */
+
+  /* Layout tokens */
+  --max-width: 1200px;
+  --radius-lg: 12px;
+  --radius-card: 15px;
+  --radius-sm: 6px;
+  --radius-xs: 4px;
+  --elev-normal: 0 0 15px var(--glow-normal);
+  --elev-hover: 0 0 25px var(--glow-hover);
 }
 
 /* Mobile-friendly layout */
@@ -48,6 +58,75 @@ body
   color: var(--text-color);
   font-family: var(--font-family);
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reusable centered container */
+.container {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ========== Global Typography ========== */
+/* Improve default paragraph wrapping and hyphenation site‑wide */
+p {
+  /* Allow nicer line breaks and prevent overflow on long words/URLs */
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  /* Slightly more comfortable paragraph spacing */
+  margin-block: 0.75rem 0.75rem;
+}
+
+/* Balance headings for cleaner multi-line titles */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* Unify section heading look */
+h2 {
+  font-size: 2.5rem;
+  color: var(--link-color);
+}
+
+/* Selection highlight */
+::selection {
+  background: rgba(127, 60, 255, 0.25);
+  color: var(--text-bright);
+}
+
+/* Better keyboard focus defaults */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+/* Anchor offset for fixed header */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Skip link utility */
+.skip-link {
+  position: fixed;
+  left: 12px;
+  top: 8px;
+  z-index: 1000;
+  transform: translateY(-200%);
+  background: var(--bg-accent);
+  color: var(--text-bright);
+  padding: 8px 12px;
+  border-radius: var(--radius-xs);
+  text-decoration: none;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
 }
 
 /* Header base styles */
@@ -62,7 +141,6 @@ body
   transition: top 0.5s, background-color 0.3s;
   display: flex;
   justify-content: center;
-  font-family: var(--font-family);
 }
 
 .header .container {
@@ -70,8 +148,6 @@ body
   align-items: center;
   justify-content: space-between; /* was center */
   position: relative;
-  max-width: 1200px;
-  width: 100%;
 }
 
 /* Position the logo absolutely so it doesn’t push nav */
@@ -176,12 +252,37 @@ body.no-scroll {
   .hamburger {
     display: flex;
   }
+
+  /* Pin CV button to bottom of the slide-in menu */
+  .nav-links .menu-bottom {
+    margin-top: auto; /* push to bottom */
+    width: 100%;
+    padding: 12px 16px 20px 16px;
+  }
+  .nav-links .cv-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--text-color);
+    color: var(--text-bright);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--elev-normal);
+    border: 1px solid var(--border-color);
+  }
+  .nav-links .cv-button:hover {
+    background: var(--link-color);
+    box-shadow: var(--elev-hover);
+  }
 }
 
 .nav ul {
   display: flex;
   list-style: none;
   gap: 50px;
+  padding-inline: 50px; /* equal space to edges */
 }
 
 .nav ul a {
@@ -245,7 +346,7 @@ body.no-scroll {
   position: relative;
   z-index: 1;
   padding: 2rem;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   background: var(--video-accent);
   backdrop-filter: blur(var(--video-blur));
 }
@@ -288,12 +389,12 @@ body.no-scroll {
   color: var(--text-bright);
   padding: 80px 40px;
   text-align: center;
+  content-visibility: auto;
+  contain-intrinsic-size: 600px;
 }
 
 .projects h2 {
-  font-size: 2.5rem;
   margin-bottom: 80px;
-  color: var(--link-color);
 }
 
 /* Grid Layout */
@@ -301,17 +402,17 @@ body.no-scroll {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
 /* Project Card */
 .project-card {
   background: var(--card-color);
-  border-radius: 15px;
+  border-radius: var(--radius-card);
   overflow: hidden;
   border: 1px solid var(--border-color);
-  box-shadow: 0 0 15px var(--glow-normal);
+  box-shadow: var(--elev-normal);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   display: flex;
@@ -320,7 +421,7 @@ body.no-scroll {
 
 .project-card:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 0 25px var(--glow-hover);
+  box-shadow: var(--elev-hover);
 }
 
 .video-container {
@@ -354,10 +455,7 @@ body.no-scroll {
   background: var(--card-color);
 }
 
-.project-content {
-  padding: 15px 20px;
-  flex: 1;
-}
+/* .project-content removed (unused) */
 
 .project-info h3 {
   font-size: 1.4rem;
@@ -400,8 +498,6 @@ body.no-scroll {
 @media (max-width: 1024px) {
   .projects-grid {
     gap: 30px;
-  }
-  .projects-grid {
     grid-template-columns: 1fr; /* 1 per row on smaller screens */
   }
 }
@@ -414,10 +510,6 @@ body.no-scroll {
   .projects h2 {
     font-size: 2rem;
   }
-
-  .project-content p {
-    font-size: 0.9rem;
-  }
 }
 
 /* ========== About Preview Section ========== */
@@ -425,31 +517,34 @@ body.no-scroll {
   background-color: var(--bg-color);
   color: var(--text-color);
   text-align: center;
+  content-visibility: auto;
+  contain-intrinsic-size: 400px;
 }
 
 .about-preview h2 {
-  font-size: 2.5rem;
   margin-bottom: 30px;
-  color: var(--link-color);
 }
 
 .about-preview-text {
-  max-width: 800px;
-  margin: 0 auto 60px auto;
-  margin-bottom: 4em; /* adds vertical space between paragraphs */
-  line-height: 1.8;     /* improves readability */
-  font-size: 1.1rem;
+  /* Match the visual width used elsewhere (projects grid ≈ 1200px) */
+  max-width: min(1200px, 92vw);
+  width: 100%;
+  margin: 0 auto 4em auto;
+  line-height: 1.8;
+  /* Slight fluid scaling for readability on different screens */
+  font-size: clamp(1rem, 1vw + 0.9rem, 1.125rem);
   color: var(--text-bright);
+  /* Gentle side padding for small screens while keeping center alignment */
+  padding-inline: clamp(16px, 4vw, 40px);
 }
 
 .about-preview button {
   display: inline-block;
   background-color: var(--text-color);
   color: var(--text-bright);
-  font-family: var(--font-family);
   font-weight: bold;
   padding: 15px 40px;      /* wider button */
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   border: none;             /* remove default button border */
   cursor: pointer;
   transition: all 0.3s ease;
@@ -467,21 +562,28 @@ body.no-scroll {
   text-align: center;
   padding-top: 120px;
   padding-bottom: 60px;
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
 }
 
 .about h2 {
-  font-size: 2.5rem;
   margin-bottom: 30px;
-  color: var(--link-color);
 }
 
 .about-text {
-  max-width: 800px;
-  margin: 0 auto 60px auto;
-  margin-bottom: 8em; /* adds vertical space between paragraphs */
-  line-height: 1.8;     /* improves readability */
-  font-size: 1.1rem;
+  /* Wider container so paragraphs reach the same edges as 16:9 sections */
+  max-width: min(1200px, 92vw);
+  width: 100%;
+  margin: 0 auto 8em auto; /* keeps centered with generous bottom spacing */
+  line-height: 1.8;
+  font-size: clamp(1rem, 1vw + 0.9rem, 1.125rem);
   color: var(--text-bright);
+  padding-inline: clamp(16px, 4vw, 40px);
+}
+
+/* Improve paragraph wrapping within about sections specifically */
+.about-preview-text p, .about-text p {
+  text-wrap: pretty;
 }
 
 .about-text a {
@@ -576,12 +678,19 @@ body.no-scroll {
   }
 }
 
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .project-card { transition: none; }
+}
+
 /* ========== Footer Styles ========== */
 .footer {
   background-color: var(--bg-dark);
   color: var(--text-color);
   padding: 20px 40px;
-  font-family: var(--font-family);
+  content-visibility: auto;
+  contain-intrinsic-size: 300px;
 }
 
 
@@ -589,8 +698,6 @@ body.no-scroll {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 20px;
 }
 
@@ -645,8 +752,7 @@ body.no-scroll {
   border: 1px solid var(--border-color);
   color: var(--text-color);
   padding: 8px;
-  border-radius: 4px;
-  font-family: var(--font-family);
+  border-radius: var(--radius-xs);
   resize: none;
 }
 
@@ -660,10 +766,9 @@ body.no-scroll {
   border: none;
   color: var(--text-bright);
   padding: 10px;
-  font-family: var(--font-family);
   font-weight: bold;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
   transition: background-color 0.3s ease;
 }
 
