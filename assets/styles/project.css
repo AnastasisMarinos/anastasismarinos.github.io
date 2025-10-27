@@ -1,0 +1,119 @@
+.project-page { content-visibility: auto; contain-intrinsic-size: 800px; padding-top: 100px; }
+.project-page .project-header { padding: 40px 20px 10px; }
+.project-page .project-header .container { max-width: var(--max-width); margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.project-page .project-title { 
+  color: var(--text-bright);
+  font-size: clamp(2.75rem, 3vw + 2rem, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  margin: 0; /* unify spacing via container gap */
+}
+.project-page .project-meta { color: var(--text-dark); margin-top: 0; font-size: 0.9rem; letter-spacing: 0.01em; }
+
+/* Responsive 16:9 video wrapper */
+.project-page .video-section { padding: 20px; }
+.project-page .video-embed { position: relative; width: min(1100px, 92vw); margin: 0 auto; background: var(--bg-accent); border-radius: var(--radius-card); border: 1px solid var(--border-color); box-shadow: none; overflow: hidden; }
+.project-page .video-embed::before { content: ""; display: block; padding-top: 56.25%; }
+.project-page .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.project-page .section { padding: 28px 20px; }
+.project-page .section h2 { margin: 0 auto 14px; max-width: min(1000px, 92vw); text-align: center; color: var(--text-bright); letter-spacing: 0.01em; }
+.project-page .section > .container { max-width: min(1000px, 92vw); }
+
+/* Details grid */
+.project-page .details-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 28px; align-items: stretch; }
+.project-page .details-grid .right { display: grid; grid-template-rows: auto 1fr; row-gap: 14px; }
+.project-page .details-grid .card { background: var(--bg-accent); border-radius: var(--radius-card); padding: 20px; border: 1px solid var(--border-color); box-shadow: none; }
+.project-page .details-grid h3 { margin-bottom: 8px; color: var(--text-color);}
+.project-page .details-grid p { color: var(--text-bright);} 
+.project-page .quick-list { list-style: none; padding-left: 0; }
+.project-page .quick-list li { margin: 8px 0; color: var(--text-bright); }
+
+/* Screenshots grid */
+.project-page .screenshots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.project-page .screenshots-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm); background: var(--bg-dark); }
+
+/* Make Code Examples h3 match Details h3 */
+.project-page section[aria-labelledby="code-title"] h3 { margin-bottom: 8px; color: var(--text-color); }
+
+/* Screenshots carousel (16:9, fades) */
+.project-page .screenshots-wrap { position: relative; width: min(900px, 88vw); margin: 0 auto; overflow: visible; }
+.project-page .screenshots-carousel {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--bg-accent);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+.project-page .screenshots-carousel::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 */
+}
+.project-page .screenshots-carousel .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 350ms ease;
+}
+.project-page .screenshots-carousel .slide.active { opacity: 1; }
+
+.project-page .carousel-btn {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 64px; /* full-height clickable area */
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.project-page .carousel-btn::after { /* arrow only */
+  content: "›";
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  font-size: 40px; line-height: 1; color: var(--text-bright);
+  opacity: 0.95;
+  transition: color 0.2s ease, transform 0.1s ease;
+}
+.project-page .carousel-btn.prev::after { content: "‹"; right: 18px; }
+.project-page .carousel-btn.next::after { left: 18px; }
+.project-page .carousel-btn:hover::after { color: var(--link-color); }
+.project-page .carousel-btn:focus-visible { outline: 2px solid var(--link-color); outline-offset: 2px; border-radius: 4px; }
+.project-page .carousel-btn.prev { left: -64px; }
+.project-page .carousel-btn.next { right: -64px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .project-page .screenshots-carousel .slide { transition: none; }
+  .project-page .carousel-btn { transition: none; }
+}
+
+/* Code blocks */
+.project-page pre { background: var(--bg-accent); color: var(--text-bright); padding: 16px; border-radius: var(--radius-sm); overflow: auto; border: 1px solid var(--border-color); box-shadow: none; }
+.project-page code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 0.9rem; }
+
+/* Links */
+.project-page .links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.project-page .link-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: var(--radius-sm); background: transparent; border: 1px solid var(--border-color); color: var(--text-bright); text-decoration: none; font-weight: 600; transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+.project-page .link-btn:hover { transform: translateY(-1px); background: var(--bg-accent); border-color: var(--link-color); color: var(--link-color); }
+.project-page .link-btn i { font-size: 1rem; }
+
+/* Project type tags */
+.project-page .project-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: -4px; }
+.project-page .tag { background: transparent; color: var(--text-color); border: 1px solid var(--border-color); padding: 6px 10px; border-radius: 999px; font-size: 0.8rem; letter-spacing: 0.03em; }
+
+@media (max-width: 900px) {
+  .project-page .details-grid { grid-template-columns: 1fr; }
+  .project-page .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .project-page .screenshots-grid { grid-template-columns: 1fr; }
+}
+
+/* Place GitHub/Itch.io below Quick Facts (right column) */
+.project-page .details-links { display: flex; justify-content: center; gap: 24px; margin-top: 0; align-self: center; transform: translateY(-12px); }

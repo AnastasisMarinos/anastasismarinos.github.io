@@ -578,16 +578,27 @@ body.no-scroll {
   /* Wider container so paragraphs reach the same edges as 16:9 sections */
   max-width: min(1200px, 92vw);
   width: 100%;
-  margin: 0 auto 8em auto; /* keeps centered with generous bottom spacing */
+  margin: 0 auto 3em auto; /* reduced gap before skills */
   line-height: 1.8;
   font-size: clamp(1rem, 1vw + 0.9rem, 1.125rem);
   color: var(--text-bright);
   padding-inline: clamp(16px, 4vw, 40px);
+  text-align: left; /* make body text left-aligned by default */
 }
 
 /* Improve paragraph wrapping within about sections specifically */
 .about-preview-text p, .about-text p {
   text-wrap: pretty;
+}
+
+.about-text p {
+  text-align: justify; /* span nicely from left to right */
+}
+
+/* Center the CTA button under the text */
+.about-cta {
+  text-align: center;
+  margin-top: 1.25em;
 }
 
 .about-text a {
@@ -604,7 +615,12 @@ body.no-scroll {
 /* ========== Skills Section ========== */
 .skills {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 2em auto 3em; /* balanced spacing above and below */
+}
+
+/* Ensure spacing if an about-text follows the skills block */
+.skills + .about-text {
+  margin-top: 2em;
 }
 
 .skills h3 {
