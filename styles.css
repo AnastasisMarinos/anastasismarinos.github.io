@@ -28,8 +28,6 @@
   --radius-card: 15px;
   --radius-sm: 6px;
   --radius-xs: 4px;
-  --elev-normal: 0 0 15px var(--glow-normal);
-  --elev-hover: 0 0 25px var(--glow-hover);
 }
 
 /* Mobile-friendly layout */
@@ -167,15 +165,25 @@ select:focus-visible {
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid var(--text-color);
-  box-shadow: 0 0 8px var(--glow-normal);
+  border: 3px solid var(--text-color); /* thicker border */
+  box-shadow: none; /* remove glow/shadow for simple circle */
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease; /* match header link hover feel */
 }
 
 .header-logo:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 20px var(--glow-hover);
+  transform: none;
+  box-shadow: none;
+  border-color: var(--link-color);
+}
+
+/* Ensure no hover/focus effects sneak in via parent or UA */
+.header-logo-link:hover .header-logo,
+.header-logo:focus,
+.header-logo:focus-visible {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--link-color);
 }
 
 /* Nav centered */
@@ -273,12 +281,10 @@ body.no-scroll {
     font-weight: bold;
     padding: 12px 14px;
     border-radius: var(--radius-sm);
-    box-shadow: var(--elev-normal);
     border: 1px solid var(--border-color);
   }
   .nav-links .cv-button:hover {
     background: var(--link-color);
-    box-shadow: var(--elev-hover);
   }
 }
 
@@ -416,7 +422,6 @@ body.no-scroll {
   border-radius: var(--radius-card);
   overflow: hidden;
   border: 1px solid var(--border-color);
-  box-shadow: var(--elev-normal);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   display: flex;
@@ -425,7 +430,6 @@ body.no-scroll {
 
 .project-card:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: var(--elev-hover);
 }
 
 .video-container {

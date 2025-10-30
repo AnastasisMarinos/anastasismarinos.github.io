@@ -31,6 +31,7 @@ permalink: /about/
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../assets/styles/project.css" />
   <!-- GSAP CDN --> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -59,64 +60,120 @@ permalink: /about/
     </button>
   </header>
 
-  <!-- About Section -->
-  <section class="about" id="about">
-    <div class="container fade-text">
-      <h2>About Me</h2>
-      <div class="about-text">
-        <p>
-          I'm an Unreal Engine Developer/Designer from Greece with lots of experience in Blueprints and C++, designing and bringing to life various game concepts. Comfortable with game optimization, as well as documenting code and maintaining clean version control (Git/Perforce), to keep colleagues aligned. I’m an adaptable all-rounder with practical 3D and audio skills (Blender modeling, GIMP texturing, FL Studio/Audacity for sound). My goal is to blend cinematography in games without interrupting the gameplay loop with cutscenes.
-        </p>
-        <p class="about-cta"><a class="reach-out-btn" href="#footer">reach out!</a></p>
+  <main class="project-page">
+    <!-- Page Header (mirrors project page) -->
+    <section class="project-header">
+      <div class="container">
+        <h1 class="project-title">About Me</h1>
+        <p class="project-meta">Unreal Engine Developer · Greece</p>
+        <div class="project-tags" role="list" aria-label="Focus areas">
+          <span class="tag" role="listitem">Unreal</span>
+          <span class="tag" role="listitem">C++ & Blueprints</span>
+          <span class="tag" role="listitem">Game Design</span>
+        </div>
       </div>
-      <div class="skills">
-        <h3>Skills & Experience</h3>
-        <div class="skills-grid">
-          <!-- Left Column - Game Dev Skills -->
-          <div class="skills-column">
-            <h4>Game Development</h4>
-            <div class="skill">
-              <span>Unreal Engine</span>
-              <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
-            </div>
-            <div class="skill">
-              <span>C++ | Blueprints</span>
-              <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
-            </div>
-            <div class="skill">
-              <span>Game Design</span>
-              <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
-            </div>
-          </div>
-          <!-- Right Column - Other Skills -->
-          <div class="skills-column">
-            <h4>Other Skills</h4>
-            <div class="skill">
-              <span>FL Studio | Audacity</span>
-              <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
-            </div>
-            <div class="skill">
-              <span>Photoshop | Gimp</span>
-              <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
-            </div>
-            <div class="skill">
-              <span>Blender</span>
-              <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+    </section>
+
+    <!-- Details layout (left text card, right quick facts + links) -->
+    <section class="section" aria-labelledby="about-details-title">
+      <h2 id="about-details-title">Overview</h2>
+      <div class="container details-grid">
+        <div class="card">
+          <h3>Who I Am</h3>
+          <p>
+            I'm an Unreal Engine Developer/Designer from Greece with lots of experience in Blueprints and C++, designing and bringing to life various game concepts. Comfortable with game optimization, as well as documenting code and maintaining clean version control (Git/Perforce), to keep colleagues aligned. I’m an adaptable all-rounder with practical 3D and audio skills (Blender modeling, GIMP texturing, FL Studio/Audacity for sound). My goal is to blend cinematography in games without interrupting the gameplay loop with cutscenes.
+          </p>
+        </div>
+        <div class="right">
+          <aside class="card" aria-label="Quick facts">
+            <h3>Quick Facts</h3>
+            <ul class="quick-list">
+              <li id="certifications"><strong>Certifications:</strong> Epic Games Game Design Professional Certificate</li>
+              <li><strong>Work Style:</strong> Collaborative, fast learner, calm under pressure</li>
+              <li><strong>Project Management:</strong> Jira, Trello, Git/GitHub (previously Perforce)</li>
+              <li><strong>IDEs:</strong> Rider, Visual Studio, VS Code</li>
+              <li><strong>Languages:</strong> English (Proficient), Greek (Native)</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+      <!-- Unified, centered buttons row below both cards -->
+      <div class="container">
+        <div class="details-links links" aria-label="Links">
+          <a class="link-btn" href="#certifications">
+            <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+            <span>Certifications</span>
+          </a>
+          <a class="link-btn" href="../assets/documents/Anastasis_Marinos_CV.pdf" target="_blank" rel="noopener">
+            <i class="fa-solid fa-file" aria-hidden="true"></i>
+            <span>View CV</span>
+          </a>
+          <a class="link-btn" href="https://github.com/AnastasisMarinos" target="_blank" rel="noopener">
+            <i class="fab fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+          <a class="link-btn" href="https://anastasismarinos.itch.io" target="_blank" rel="noopener">
+            <i class="fab fa-itch-io" aria-hidden="true"></i>
+            <span>Itch.io</span>
+          </a>
+          <a class="link-btn" href="https://www.linkedin.com/in/anastasis-marinos-229a73261" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a class="link-btn" href="#footer">
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            <span>Reach Out</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills (preserve progress bars, styled inside a card) -->
+    <section class="section" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills & Experience</h2>
+      <div class="container">
+        <div class="card">
+          <div class="skills">
+            <h3>Skills & Experience</h3>
+            <div class="skills-grid">
+              <!-- Left Column - Game Dev Skills -->
+              <div class="skills-column">
+                <h4>Game Development</h4>
+                <div class="skill">
+                  <span>Unreal Engine</span>
+                  <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill">
+                  <span>C++ | Blueprints</span>
+                  <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill">
+                  <span>Game Design</span>
+                  <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
+                </div>
+              </div>
+              <!-- Right Column - Other Skills -->
+              <div class="skills-column">
+                <h4>Other Skills</h4>
+                <div class="skill">
+                  <span>FL Studio | Audacity</span>
+                  <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill">
+                  <span>Photoshop | Gimp</span>
+                  <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
+                </div>
+                <div class="skill">
+                  <span>Blender</span>
+                  <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="about-text">
-        <ul class="about-list">
-          <li>Certifications: Epic Games Game Design Professional Certificate.</li>
-          <li>Work Style: Collaborative, Fast Learner, Efficient under pressure, Active listener, Problem solver.</li>
-          <li>Project Management:  Jira / Trello, Git / Github (Previously Perforce).</li>
-          <li>IDE's: Rider, Visual Studio, VS Code.</li>
-          <li>Languages: Proficient in English and Native in Greek.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer" id="footer">
