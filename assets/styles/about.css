@@ -1,0 +1,49 @@
+/* About page and shared layout used by Privacy */
+
+.about {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 60px;
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
+.about h2 {
+  margin-bottom: 30px;
+}
+
+.about-text {
+  max-width: min(1200px, 92vw);
+  width: 100%;
+  margin: 0 auto 3em auto;
+  line-height: 1.8;
+  font-size: clamp(1rem, 1vw + 0.9rem, 1.125rem);
+  color: var(--text-bright);
+  padding-inline: clamp(16px, 4vw, 40px);
+  text-align: left;
+}
+
+.about-text p { text-align: justify; text-wrap: pretty; }
+
+.about-cta { text-align: center; margin-top: 1.25em; }
+
+.about-text a { color: var(--link-color); text-decoration: none; font-weight: bold; }
+.about-text a:hover { color: var(--link-color); text-decoration: underline; }
+
+/* Skills */
+.skills { max-width: 1000px; margin: 2em auto 3em; }
+.skills + .about-text { margin-top: 2em; }
+.skills h3 { text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--link-color); }
+.skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; }
+.skills-column { flex: 1; min-width: 300px; }
+.skills-column h4 { text-align: center; font-size: 1.4rem; margin-bottom: 25px; color: var(--link-color); letter-spacing: 1px; }
+.skill { margin-bottom: 25px; }
+.skill span { display: block; margin-bottom: 8px; font-weight: bold; font-size: 1rem; color: var(--text-bright); }
+.progress-bar { width: 100%; height: 12px; background-color: #222; border-radius: 10px; overflow: hidden; }
+.progress { height: 100%; background: linear-gradient(90deg, var(--link-color), var(--link-accent)); border-radius: 10px; transition: width 1s ease-in-out; }
+
+@media (max-width: 768px) {
+  .skills-grid { flex-direction: column; align-items: center; }
+}

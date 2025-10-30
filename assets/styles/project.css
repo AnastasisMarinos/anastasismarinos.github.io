@@ -99,8 +99,8 @@
 
 /* Links */
 .project-page .links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-.project-page .link-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: var(--radius-sm); background: transparent; border: 1px solid var(--border-color); color: var(--text-bright); text-decoration: none; font-weight: 600; transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
-.project-page .link-btn:hover { transform: translateY(-1px); background: var(--bg-accent); border-color: var(--link-color); color: var(--link-color); }
+.project-page .link-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: var(--radius-sm); background: var(--card-color); border: 3px solid var(--border-color); color: var(--text-bright); text-decoration: none; font-weight: 600; transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+.project-page .link-btn:hover { transform: translateY(-1px); background: var(--card-color); border-color: var(--link-color); color: var(--link-color); }
 .project-page .link-btn i { font-size: 1rem; }
 
 /* Project type tags */

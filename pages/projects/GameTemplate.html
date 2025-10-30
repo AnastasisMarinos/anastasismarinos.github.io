@@ -1,39 +1,41 @@
 ---
-permalink: /project/
+permalink: /GameTemplate/
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anastasis Marinos • Project</title>
+  <title>Anastasis Marinos • Game Template</title>
   <!-- Favicon -->
-  <link rel="icon" href="../assets/images/logo.png" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="../assets/images/logo.png" sizes="180x180" />
+  <link rel="icon" href="../../assets/images/logo.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../../assets/images/logo.png" sizes="180x180" />
   <!-- SEO & Social Sharing -->
-  <meta name="description" content="Portfolio of Anastasis Marinos – Unreal Engine Game Developer & Designer creating immersive experiences and interactive worlds." />
+  <meta name="description" content="Detailed project page from the portfolio of Anastasis Marinos — Unreal Engine Game Developer & Designer." />
   <meta name="author" content="Anastasis Marinos" />
-  <meta name="keywords" content="Anastasis Marinos, Unreal Engine, game developer, game designer, portfolio, interactive experiences" />
+  <meta name="keywords" content="Anastasis Marinos, Unreal Engine, game developer, game design, project case study" />
   <!-- Open Graph -->
-  <meta property="og:title" content="Anastasis Marinos – Game Developer" />
-  <meta property="og:description" content="Explore the portfolio of Anastasis Marinos, showcasing immersive games, interactive experiences, and design expertise." />
-  <meta property="og:image" content="../assets/images/logo.png" />
+  <meta property="og:title" content="Anastasis Marinos • Game Template" />
+  <meta property="og:description" content="Case study with video, screenshots, code examples, and links." />
+  <meta property="og:image" content="../../assets/images/logo.png" />
   <meta property="og:type" content="website" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Anastasis Marinos – Unreal Engine Game Developer" />
-  <meta name="twitter:description" content="Portfolio of Anastasis Marinos, specializing in Unreal Engine games and interactive design." />
-  <meta name="twitter:image" content="../assets/images/logo.png" />
+  <meta name="twitter:title" content="Anastasis Marinos • Game Template" />
+  <meta name="twitter:description" content="Case study with video, screenshots, code examples, and links." />
+  <meta name="twitter:image" content="../../assets/images/logo.png" />
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap" rel="stylesheet" />
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../../assets/styles/project.css" />
   <!-- GSAP CDN --> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
 </head>
 
 <body>
@@ -42,7 +44,7 @@ permalink: /project/
     <div class="container">
     <!-- Logo (left) -->
     <a href="https://anastasismarinos.com/#hero" class="header-logo-link">
-      <img src="../assets/images/logo.png" alt="Logo" class="header-logo">
+      <img src="../../assets/images/logo.png" alt="Logo" class="header-logo">
     </a>
     <!-- Navigation (right) -->
     <nav class="nav">
@@ -50,7 +52,7 @@ permalink: /project/
       <li><a href="https://anastasismarinos.com/#projects">Projects</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="#footer">Contact</a></li>
-      <li><a href="../assets/documents/Anastasis_Marinos_CV.pdf" target="_blank" rel="noopener">CV</a></li>
+      <li><a href="../../assets/documents/Anastasis_Marinos_CV.pdf" target="_blank" rel="noopener">CV</a></li>
       </ul>
     </nav>
     <!-- Hamburger (mobile) -->
@@ -63,12 +65,11 @@ permalink: /project/
     <!-- Title / Meta -->
     <section class="project-header">
       <div class="container">
-        <h1 class="project-title">Dead By Daylight</h1>
-        <p class="project-meta">Solo • 3 Months • Unreal Engine 5 • C++ & Blueprints</p>
+        <h1 class="project-title">Game Template</h1>
+        <p class="project-meta">Solo • 3 Weeks • Unreal Engine 5 • C++ & Blueprints</p>
         <!-- Project type tags: edit as needed (e.g., Game, Prototype, Clone, Cutscene, Scene, GDD, Template) -->
         <div class="project-tags" role="list" aria-label="Project type">
-          <span class="tag" role="listitem">Game</span>
-          <span class="tag" role="listitem">Prototype</span>
+          <span class="tag" role="listitem">Template</span>
         </div>
       </div>
     </section>
@@ -94,22 +95,34 @@ permalink: /project/
         <div class="card">
           <h3>How It Was Built</h3>
           <p>
-            Outline your core systems and workflow. For example: modular gameplay components, data-driven actors, and
-            Blueprints for rapid iteration with key systems in C++ for performance and maintainability.
+            Developed in UE5 using EOS for peer-to-peer multiplayer. This project features a full asymmetrical horror gameplay loop.
           </p>
           <p>
-            Mention any design pillars (game feel, atmosphere, accessibility), optimization (culling, LODs, async loading),
-            and production practices (version control, code reviews, profiling).
+            This project is an asymmetrical horror prototype built in Unreal Engine 5 using a clean separation between visual logic (Blueprints/UI) and core gameplay systems (C++). The core loop is modeled after Dead by Daylight: survivors repair generators, power the exit, heal each other, and avoid being caught and hooked by the killer.
+          </p>
+          <p>
+            Most gameplay rules — interaction flow, survivor states (healthy/injured/crawling/carried/hooked), health progression, generator repair and sabotage, hook and wiggle logic, etc. — are implemented and replicated in C++ components. Those components drive authoritative game state on the server, and then push cosmetic/UI updates to clients. That includes survivor health bars, skill checks, action progress bars, and endgame triggers (survivors escape vs. killer wins).
+          </p>
+          <p>
+            The match flow runs on Epic Online Services (EOS). The server creates or joins EOS sessions, assigns one player as the killer and the rest as survivors, and replicates win conditions. All survivors are dead vs. the exit powered and survivors escaped.
           </p>
           <h3>Why</h3>
           <p>
-            Describe the purpose or goals: learning a mechanic, exploring an art style, prototyping a game loop,
-            or demonstrating multiplayer/netcode, AI behavior, or UI/UX approaches.
+            The goal of this project was to learn by recreating the full loop of an online asymmetrical horror game: networking, authority, session management, replicated combat, and interaction systems. I wanted to build something more complex than a “simple demo” and closer to an actual multiplayer game that I can experience with my friends.
+          </p>
+          <p>
+            Long-term, the goal is to turn this into a reusable asymmetric horror template. The plan is to replace any copyrighted placeholder content (like the Silent Hill: Midwich Elementary map and Pyramid Head killer) and ship a clean, original base that other devs can build on.
           </p>
           <h3>Built With</h3>
           <p>
-            Unreal Engine 5, C++ & Blueprints, Blender, GIMP/Photoshop, FL Studio/Audacity. List plugins or tools if used
-            (e.g., Control Rig, Niagara, Common UI).
+            • Unreal Engine 5 (C++ gameplay framework + Blueprint-driven UI)<br>
+            • Epic Online Services (sessions, lobbies, online identity, player presence)<br>
+            • Niagara for hit / blood particle effects and generator VFX<br>
+            • Custom movement components for both Survivor and Killer (sprint, crawl, stun states)<br>
+            • Replicated animation montage system for melee, carry, hook, etc.<br>
+            • Blender for modeling and kitbashing level content<br>
+            • Retro PSX-style art direction (low poly, crunchy textures, heavy atmosphere)<br>
+            • FL Studio for sound effects and audio work
           </p>
         </div>
         <div class="right">
@@ -117,18 +130,18 @@ permalink: /project/
             <h3>Quick Facts</h3>
             <ul class="quick-list">
               <li><strong>Team:</strong> Solo</li>
-              <li><strong>Scope:</strong> 3 Months</li>
+              <li><strong>Scope:</strong> 3 Weeks</li>
               <li><strong>Engine:</strong> Unreal Engine 5</li>
               <li><strong>Language:</strong> C++ & Blueprints</li>
             </ul>
           </aside>
           <!-- Links sit directly below the Quick Facts within the right column -->
           <div class="details-links links" aria-label="Project Links">
-            <a class="link-btn" href="https://github.com/AnastasisMarinos" target="_blank" rel="noopener">
+            <a class="link-btn" href="https://github.com/AnastasisMarinos/Dead-By-Daylight-Clone" target="_blank" rel="noopener">
               <i class="fab fa-github" aria-hidden="true"></i>
               <span>View on GitHub</span>
             </a>
-            <a class="link-btn" href="https://anastasismarinos.itch.io" target="_blank" rel="noopener">
+            <a class="link-btn" href="https://anastasismarinos.itch.io/dbdclone" target="_blank" rel="noopener">
               <i class="fab fa-itch-io" aria-hidden="true"></i>
               <span>View on Itch.io</span>
             </a>
@@ -144,9 +157,9 @@ permalink: /project/
         <div class="screenshots-wrap">
           <div class="screenshots-carousel" role="region" aria-label="Screenshot carousel">
             <!-- Use your own screenshots in assets/images/projects/... -->
-            <img class="slide active" src="../assets/images/SS_1.png" alt="Screenshot 1" loading="eager" />
-            <img class="slide" src="../assets/images/SS_2.png" alt="Screenshot 2" loading="lazy" />
-            <img class="slide" src="../assets/images/SS_3.png" alt="Screenshot 3" loading="lazy" />
+            <img class="slide active" src="../../assets/images/SS_1.png" alt="Screenshot 1" loading="eager" />
+            <img class="slide" src="../../assets/images/SS_2.png" alt="Screenshot 2" loading="lazy" />
+            <img class="slide" src="../../assets/images/SS_3.png" alt="Screenshot 3" loading="lazy" />
           </div>
           <button class="carousel-btn prev" aria-label="Previous screenshot" type="button"></button>
           <button class="carousel-btn next" aria-label="Next screenshot" type="button"></button>
@@ -207,7 +220,7 @@ void ARotatorActor::Tick(float DeltaSeconds)
   </footer>
 
   <!-- JavaScript -->
-  <script defer src="../scripts/page-manager.js"></script>
-  <script defer src="../scripts/script.js"></script>
+  <script defer src="../../scripts/page-manager.js"></script>
+  <script defer src="../../scripts/script.js"></script>
 </body>
 </html>
