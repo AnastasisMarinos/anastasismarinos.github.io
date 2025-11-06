@@ -65,7 +65,7 @@ permalink: /AsymmetricalHorror/
     <!-- Title / Meta -->
     <section class="project-header">
       <div class="container">
-        <h1 class="project-title">Dead By Daylight</h1>
+        <h1 class="project-title">Asymmetrical Horror</h1>
         <p class="project-meta">Solo • 3 Months • Unreal Engine 5 • C++ & Blueprints</p>
         <!-- Project type tags: edit as needed (e.g., Game, Prototype, Clone, Cutscene, Scene, GDD, Template) -->
         <div class="project-tags" role="list" aria-label="Project type">
@@ -82,7 +82,7 @@ permalink: /AsymmetricalHorror/
       <div class="video-embed" role="group" aria-label="Embedded YouTube player">
         <!-- Replace VIDEO_ID with your actual YouTube video ID or full embed URL -->
         <iframe
-          src="https://www.youtube.com/embed/sKJCmfkpJ0Q?si=cxk0Ylidhy5AlZ-9"
+          src=""
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
@@ -173,17 +173,119 @@ permalink: /AsymmetricalHorror/
     <section class="section" aria-labelledby="code-title">
       <h2 id="code-title">Code Examples</h2>
       <div class="container">
-        <h3>Unreal C++ (Actor Tick)</h3>
-        <pre><code>// Example: Simple rotating actor component
-UPROPERTY(EditAnywhere, Category = "Movement")
-float RotationSpeed = 45.f; // deg/sec
-
-void ARotatorActor::Tick(float DeltaSeconds)
+        <h3>Part Of Survivor Character</h3>
+<pre><code>void ASurvivorCharacter::BeginPlay()
 {
-    Super::Tick(DeltaSeconds);
-    AddActorLocalRotation(FRotator(0.f, RotationSpeed * DeltaSeconds, 0.f));
+	Super::BeginPlay();
+
+	if (HasAuthority())
+	{
+		if (APlayerGameState* GS = GetWorld()->GetGameState<APlayerGameState>())
+		{
+			GS->RegisterSurvivor(this);
+		}
+	}
+
+	if (HealthComponent)
+	{
+		HealthComponent->OnHealthStateChanged.AddDynamic(this, &ASurvivorCharacter::OnHealthStateChanged);
+	}
+
+	if (SkillCheckComponent)
+	{
+		SkillCheckComponent->OnStartNotify.AddDynamic(this, &ASurvivorCharacter::NotifySkillCheck);
+		SkillCheckComponent->OnFail.AddDynamic(this, &ASurvivorCharacter::FailSkillCheck);
+		SkillCheckComponent->OnSuccess.AddDynamic(this, &ASurvivorCharacter::SucceedSkillCheck);
+		SkillCheckComponent->OnGreat.AddDynamic(this, &ASurvivorCharacter::GreatSkillCheck);
+		SkillCheckComponent->OnStartSkillCheck.AddDynamic(this, &ASurvivorCharacter::StartSkillCheck);
+		SkillCheckComponent->OnUpdateFailTimer.AddDynamic(this, &ASurvivorCharacter::UpdateFailTime);
+	}
 }
-        </code></pre>
+
+void ASurvivorCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ASurvivorCharacter, bIsRepairing);
+	DOREPLIFETIME(ASurvivorCharacter, bIsPoweringGates);
+	DOREPLIFETIME(ASurvivorCharacter, bIsBeingHealed);
+	DOREPLIFETIME(ASurvivorCharacter, bIsHealingOther);
+	DOREPLIFETIME(ASurvivorCharacter, PlayMontageInfo);
+}
+
+// React to health state changes.
+void ASurvivorCharacter::OnHealthStateChanged(EHealthState NewState)
+{
+	switch (NewState)
+	{
+	case EHealthState::Carried:
+		{
+			// When picked up by the killer: force out of crawl, disable collisions and movement,
+			// and attach to the killer’s mesh (carry socket) once we have the reference.
+			if (SurvivorMovement) { SurvivorMovement->SetCrawl(false); }
+
+			GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+			if (UCharacterMovementComponent* CM = GetCharacterMovement())
+			{
+				CM->StopMovementImmediately();
+				CM->SetMovementMode(MOVE_None);
+				CM->Deactivate();
+			}
+
+			if (AKillerCharacter* Killer = HealthComponent ? HealthComponent->GetActiveKiller() : nullptr)
+			{
+				if (USkeletalMeshComponent* KMesh = Killer->GetMesh())
+				{
+					AttachToComponent(KMesh,
+						FAttachmentTransformRules::SnapToTargetNotIncludingScale,
+						TEXT("carry_socket"));
+				}
+			}
+			break;
+		}
+	case EHealthState::Hooked:
+	{
+		// While hooked, attach to the hook mesh (socket), disable movement & collision,
+		// and make sure we are not in crawl mode anymore.
+		AHook* CurrentHook = HealthComponent ? HealthComponent->GetActiveHook() : nullptr;
+		if (CurrentHook && CurrentHook->HookMesh)
+		{
+			DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+			AttachToComponent(CurrentHook->HookMesh, FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("hook_socket"));
+			GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+			GetCharacterMovement()->SetMovementMode(MOVE_None);
+			GetCharacterMovement()->Deactivate();
+		}
+		if (SurvivorMovement) { SurvivorMovement->SetCrawl(false); }
+		break;
+	}
+	case EHealthState::Crawling:
+	{
+		// On the ground: enable crawl locomotion, re-enable movement/collision, and detach from anything.
+		if (SurvivorMovement) { SurvivorMovement->SetCrawl(true); }
+		DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+		GetCharacterMovement()->SetMovementMode(MOVE_Walking);
+		GetCharacterMovement()->Activate();
+		break;
+	}
+	default:
+	{
+		// Healthy/Injured baseline: ensure normal walking and collisions, detach from sockets,
+		// and force a network update to quickly inform other clients of our new mode.
+		DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		SetReplicateMovement(true);
+		ForceNetUpdate();
+		GetCharacterMovement()->StopMovementImmediately();
+		GetCharacterMovement()->ClearAccumulatedForces();
+		GetCharacterMovement()->SetMovementMode(MOVE_Walking);
+		GetCharacterMovement()->Activate();
+		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+		if (SurvivorMovement) { SurvivorMovement->SetCrawl(false); }
+		break;
+	}
+	}
+}</code></pre>
       </div>
     </section>
 
