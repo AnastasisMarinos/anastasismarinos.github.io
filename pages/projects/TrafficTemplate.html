@@ -1,0 +1,245 @@
+---
+permalink: /TrafficTemplate/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anastasis Marinos • Traffic Template</title>
+  <!-- Favicon -->
+  <link rel="icon" href="../../assets/images/logo.webp" type="image/webp" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../../assets/images/logo.webp" sizes="180x180" />
+  <!-- SEO & Social Sharing -->
+  <meta name="description" content="Detailed project page from the portfolio of Anastasis Marinos — Unreal Engine Game Developer & Designer." />
+  <meta name="author" content="Anastasis Marinos" />
+  <meta name="keywords" content="Anastasis Marinos, Unreal Engine, game developer, game design, project case study" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Anastasis Marinos • Traffic Template" />
+  <meta property="og:description" content="Case study with video, screenshots, code examples, and links." />
+  <meta property="og:image" content="../../assets/images/logo.webp" />
+  <meta property="og:type" content="website" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Anastasis Marinos • Traffic Template" />
+  <meta name="twitter:description" content="Case study with video, screenshots, code examples, and links." />
+  <meta name="twitter:image" content="../../assets/images/logo.webp" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap" rel="stylesheet" />
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../../assets/styles/main.css" />
+  <!-- GSAP CDN --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+    <!-- Logo (left) -->
+    <a href="https://anastasismarinos.com/#hero" class="header-logo-link">
+      <img src="../../assets/images/logo.webp" alt="Logo" class="header-logo">
+    </a>
+    <!-- Navigation (right) -->
+    <nav class="nav">
+      <ul class="nav-links" id="primary-navigation">
+      <li><a href="https://anastasismarinos.com/#projects">Projects</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="#footer">Contact</a></li>
+      <li><a href="../../assets/documents/Anastasis_Marinos_CV.pdf" target="_blank" rel="noopener">CV</a></li>
+      </ul>
+    </nav>
+    <!-- Hamburger (mobile) -->
+    <button class="hamburger" aria-label="Menu" aria-controls="primary-navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="project-page">
+    <!-- Title / Meta -->
+    <section class="project-header">
+      <div class="container">
+        <h1 class="project-title">Traffic Template</h1>
+        <p class="project-meta">Solo • 3 Weeks • Unreal Engine 5 • C++ & Blueprints</p>
+        <!-- Project type tags: edit as needed (e.g., Game, Prototype, Clone, Cutscene, Scene, GDD, Template) -->
+        <div class="project-tags" role="list" aria-label="Project type">
+          <span class="tag" role="listitem">Template</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- YouTube Video -->
+    <section class="section video-section" aria-labelledby="video-title">
+      <h2 id="video-title">Gameplay Video</h2>
+      <div class="video-embed" role="group" aria-label="Embedded YouTube player">
+        <!-- Replace VIDEO_ID with your actual YouTube video ID or full embed URL -->
+        <iframe
+          src="https://www.youtube.com/embed/n9_eNJNbnKs?si=KfW_vCM9Ahh7wp11"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- Details: how, why, with what -->
+    <section class="section" aria-labelledby="details-title">
+      <h2 id="details-title">Project Details</h2>
+      <div class="container details-grid">
+        <div class="card">
+          <h3>How It Was Built</h3>
+          <p>
+            This project is a modular traffic and vehicle system prototype built in Unreal Engine 5, designed for open-world environments and sandbox projects. All core logic, vehicle physics, traffic behavior, and collision response is implemented using and split up between visual logic (Blueprints) and core systems (C++/Mass AI).
+          </p>
+          <p>
+            Vehicle movement uses simplified physics implemented through Unreal’s Chaos system, with acceleration, braking, steering curves, and suspension. Each vehicle is driven by a shared component set that handles wheel rotation, throttle input, speed calculation, and basic damage responses.
+          <p>
+            The traffic system is powered by the Mass AI plugin. Vehicles follow splines or predefined navigation lanes, obey speed limits, slow down when approaching other vehicles, and react to obstacles. Traffic agents are spawned, pooled, and despawned dynamically to support large open-world maps without performance spikes. Collision events feed into a simple crash-reaction system that applies impulses and temporary handling penalties.
+          </p>
+          <p>
+            All systems are built to be modular. New vehicles can be added by assigning a data asset defining physics settings and a behavior profile. New traffic patterns can be generated by rearranging spline networks and Mass entities.
+          </p>
+          <h3>Why</h3>
+          <p>
+            The goal of this project was to create a lightweight, reusable traffic and vehicle framework that can be dropped into any open-world Unreal Engine project without relying on heavy third-party systems. I wanted to understand the fundamentals of vehicle physics, Mass AI workflows, agent spawning, and performance-friendly simulation of large numbers of actors.
+          </p>
+          <p>
+            Long-term, this system is intended to become a polished, standalone template for indie developers. The plan is to replace any placeholder or copyrighted vehicle assets, expand physics interactions, polish the AI rules, and release a clean version that can serve as a starting point for open-world prototypes.
+          <h3>Built With</h3>
+          <p>
+            • Unreal Engine 5 (C++ gameplay framework + Blueprint-driven UI)<br>
+          </p>
+        </div>
+        <div class="right">
+          <aside class="card" aria-label="Quick facts">
+            <h3>Quick Facts</h3>
+            <ul class="quick-list">
+              <li><strong>Team:</strong> Solo</li>
+              <li><strong>Scope:</strong> 3 Weeks</li>
+              <li><strong>Engine:</strong> Unreal Engine 5</li>
+              <li><strong>Language:</strong> C++ & Blueprints</li>
+            </ul>
+          </aside>
+          <!-- Links sit directly below the Quick Facts within the right column -->
+          <div class="details-links links" aria-label="Project Links">
+            <a class="link-btn" href="https://github.com/AnastasisMarinos/UE5-Vehicle-Template" target="_blank" rel="noopener">
+              <i class="fab fa-github" aria-hidden="true"></i>
+              <span>View on GitHub</span>
+            </a>
+            <a class="link-btn" href="https://anastasismarinos.itch.io/psx-vehicle-template" target="_blank" rel="noopener">
+              <i class="fab fa-itch-io" aria-hidden="true"></i>
+              <span>View on Itch.io</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="section" aria-labelledby="shots-title">
+      <h2 id="shots-title">Screenshots</h2>
+      <div class="container">
+        <div class="screenshots-wrap">
+          <div class="screenshots-carousel" role="region" aria-label="Screenshot carousel">
+            <!-- Use your own screenshots in assets/images/projects/... -->
+            <img class="slide active" src="../../assets/images/SS_10.webp" alt="Screenshot 1" loading="eager" />
+            <img class="slide" src="../../assets/images/SS_11.webp" alt="Screenshot 2" loading="lazy" />
+            <img class="slide" src="../../assets/images/SS_12.webp" alt="Screenshot 3" loading="lazy" />
+          </div>
+          <button class="carousel-btn prev" aria-label="Previous screenshot" type="button"></button>
+          <button class="carousel-btn next" aria-label="Next screenshot" type="button"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code Examples -->
+    <section class="section" aria-labelledby="code-title">
+      <h2 id="code-title">Code Examples</h2>
+      <div class="container">
+        <h3>Vehicle Base</h3>
+        <pre><code>// Slow down vehicle rotation while in air by increasing the meshes angular dampening. 
+void AVehicleBase::DampenWhileInAir()
+{
+	static bool bWasOnGround = true;
+	bool bOnGround = MovementComponent->IsMovingOnGround();
+
+	if (bOnGround != bWasOnGround)
+	{
+		GetMesh()->SetAngularDamping(bOnGround ? 0.f : 3.f);
+		bWasOnGround = bOnGround;
+	}
+}</code></pre>
+      </div>
+
+      <div class="container">
+        <h3>Player Vehicle Base</h3>
+        <pre><code>// Realign Camera Back To Its Original Position While Driving.
+void APlayerVehicleBase::RealignCamera(float DeltaSeconds)
+{
+	// Get vehicle forward speed (in cm/s)
+	float ForwardSpeed = MovementComponent->GetForwardSpeed();
+	
+	if (ForwardSpeed != 0.0f)
+	{
+		// Ignore small jitter
+		if (FMath::Abs(ForwardSpeed) < 5.0f)
+			return;
+
+		// Target yaw depending on direction
+		float TargetYaw = (ForwardSpeed < -10.0f) ? 180.0f : 0.0f;
+
+		FRotator CameraRotation = CameraArm->GetRelativeRotation();
+
+		// Use FixedTurn to smoothly rotate shortest path without 360° flip
+		float NewYaw = FMath::FixedTurn(CameraRotation.Yaw, TargetYaw, CameraRealignSpeed * DeltaSeconds * 50.0f);
+
+		CameraArm->SetRelativeRotation(FRotator(0.0f, NewYaw, 0.0f));
+	}
+}</code></pre>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-left">
+      <p>© 2025 Anastasis Marinos.</p>
+      <p>All rights reserved.</p>
+    </div>
+    <div class="footer-center">
+      <div class="icons-container">
+        <a href="https://www.youtube.com/@anastasismarinos" target="_blank" rel="noopener" aria-label="Youtube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://anastasismarinos.itch.io" target="_blank" rel="noopener" aria-label="Itch.io">
+          <i class="fab fa-itch-io"></i>
+        </a>
+        <a href="https://github.com/AnastasisMarinos" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/anastasismarinos/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <form action="https://formspree.io/f/xanovkyp" method="POST" class="contact-form">
+      <input type="email" name="email" placeholder="example@mail.com" required>
+      <textarea name="message" placeholder="Example message..." required></textarea>
+      <button type="submit"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i><span>Contact Me</span></button>
+      </form>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script defer src="../../scripts/page-manager.js"></script>
+  <script defer src="../../scripts/script.js"></script>
+</body>
+</html>

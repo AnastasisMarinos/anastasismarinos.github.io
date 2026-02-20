@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anastasis Marinos • Home</title>
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/images/logo.webp" type="image/webp" sizes="32x32" />
+  <link rel="apple-touch-icon" href="./assets/images/logo.webp" sizes="180x180" />
+  <!-- SEO & Social Sharing -->
+  <meta name="description" content="Portfolio of Anastasis Marinos – Unreal Engine Game Developer & Designer creating immersive experiences and interactive worlds." />
+  <meta name="author" content="Anastasis Marinos" />
+  <meta name="keywords" content="Anastasis Marinos, Unreal Engine, game developer, game designer, portfolio, interactive experiences" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Anastasis Marinos – Game Developer" />
+  <meta property="og:description" content="Explore the portfolio of Anastasis Marinos, showcasing immersive games, interactive experiences, and design expertise." />
+  <meta property="og:image" content="./assets/images/logo.webp" />
+  <meta property="og:type" content="website" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Anastasis Marinos – Unreal Engine Game Developer" />
+  <meta name="twitter:description" content="Portfolio of Anastasis Marinos, specializing in Unreal Engine games and interactive design." />
+  <meta name="twitter:image" content="./assets/images/logo.webp" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap" rel="stylesheet" />
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/styles/main.css" />
+  <!-- GSAP CDN --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+    <!-- Logo (left) -->
+    <a href="#hero" class="header-logo-link">
+      <img src="./assets/images/logo.webp" alt="Logo" class="header-logo">
+    </a>
+
+    <!-- Navigation (right) -->
+    <nav class="nav">
+      <ul class="nav-links" id="primary-navigation">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="#footer">Contact</a></li>
+      <li><a href="./assets/documents/Anastasis_Marinos_CV.pdf" target="_blank" rel="noopener">CV</a></li>
+      </ul>
+    </nav>
+    <!-- Hamburger (mobile) -->
+    <button class="hamburger" aria-label="Menu" aria-controls="primary-navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <video autoplay muted loop preload="auto">
+      <source src="./assets/videos/background.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay"></div>
+    <div class="overlay">
+      <img src="./assets/images/logo.webp" alt="Logo" class="logo" />
+      <h1 class="title">Anastasis Marinos</h1>
+      <p class="fade-text">Game Developer</p>
+      <p class="fade-text">
+        <i class="fa-solid fa-birthday-cake"></i> 20
+        <i class="fa-solid fa-location-dot"></i> Greece
+      </p>
+    </div>
+    <div class="scroll-down">
+      <a href="#projects">↓   My Projects   ↓</a>
+    </div>
+  </section>
+
+  <!-- ========== Projects Section ========== -->
+  <section class="projects" id="projects">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+
+
+    <!-- Project Card 3 -->
+      <div class="project-card" onclick="openProject('evacuation.html')">
+      <div class="video-container">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="./assets/videos/oxygen_short.webm" type="video/webm">
+        </video>
+        <div class="info-bar">
+          <div class="info-item"><i class="fa-solid fa-users"></i> 1</div>
+          <div class="info-item"><i class="fa-solid fa-clock"></i> 2 Weeks</div>
+          <div class="info-item"><i class="fa-solid fa-gears"></i> Unreal Engine 5</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>Oxygen</h3>
+        <p>Narrative-driven game adaptation of Ivan Vyrypaev’s theatrical play Oxygen, immersing players in a stylized rave environment inspired by the play. This project focuses on Audio-Reactive Environment Systems. Dynamically triggered narration lines synced over music, changing the visual style of the scene (lights/post processing), while real-time audio processing alters the music for mood transitions.</p>
+        <a href="/Oxygen/"
+          aria-label="Learn more about Oxygen">
+          <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+          <span>Learn More</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Project Card 6 -->
+      <div class="project-card" onclick="openProject('evacuation.html')">
+      <div class="video-container">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="./assets/videos/traffictemplate_short.webm" type="video/webm">
+        </video>
+        <div class="info-bar">
+          <div class="info-item"><i class="fa-solid fa-users"></i> 1</div>
+          <div class="info-item"><i class="fa-solid fa-clock"></i> 3 Weeks</div>
+          <div class="info-item"><i class="fa-solid fa-gears"></i> Unreal Engine 5</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>Traffic [Template]</h3>
+        <p>After developing simple vehicle physics for fun, I decided to take it a step further and migrate the Mass Traffic AI system from Epic’s City Sample Project. This allowed me to easily create a simple traffic simulation system that I can use in my future “open-world-ish” projects. This project also includes crash physics and car deformation.</p>
+        <a href="/TrafficTemplate/"
+          aria-label="Learn more about my Traffic/Vehicle Template">
+          <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+          <span>Learn More</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Project Card 8 -->
+      <div class="project-card" onclick="openProject('evacuation.html')">
+      <div class="video-container">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="./assets/videos/folktale_short.webm" type="video/webm">
+        </video>
+        <div class="info-bar">
+          <div class="info-item"><i class="fa-solid fa-users"></i> 1</div>
+          <div class="info-item"><i class="fa-solid fa-clock"></i> 3 Days</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>A Folktale [GDD]</h3>
+        <p>A surreal, atmospheric horror taking place in a remote Greek mountain village. This is an early GDD of a game I wanna make in the future. It mixes Greek folklore with music and horror cult elements. The idea is inspired by films of the weird wave genre, mixing cinematography techniques in a no-cutscene first-person game. It's about creating a movie-like story experience that is fully playable with no interruptions.</p>
+        <a href="./assets/documents/A_Folktale_GDD.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span>Read Project</span></a>
+      </div>
+    </div>
+
+    <!-- Project Card 2 -->
+      <div class="project-card" onclick="openProject('evacuation.html')">
+      <div class="video-container">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="./assets/videos/dbd_short.webm" type="video/webm">
+        </video>
+        <div class="info-bar">
+          <div class="info-item"><i class="fa-solid fa-users"></i> 1</div>
+          <div class="info-item"><i class="fa-solid fa-clock"></i> 3 Months</div>
+          <div class="info-item"><i class="fa-solid fa-gears"></i> Unreal Engine 5</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>Dead By Daylight</h3>
+        <p>Stylized Dead By Daylight demake featuring the Silent Hill, Midwich Elementary Map. Developed in UE5 using EOS for peer-to-peer multiplayer. This project features the full gameplay loop of the renowned game without the skill tree and perk system. This is still under development to be turned into a copyright-free Asymmetrical Horror template.</p>
+        <a href="/AsymmetricalHorror/"
+          aria-label="Learn more about Asymmetrical Horror">
+          <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+          <span>Learn More</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Project Card 5 -->
+      <div class="project-card" onclick="openProject('evacuation.html')">
+      <div class="video-container">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="./assets/videos/gametemplate_short.webm" type="video/webm">
+        </video>
+        <div class="info-bar">
+          <div class="info-item"><i class="fa-solid fa-users"></i> 1</div>
+          <div class="info-item"><i class="fa-solid fa-clock"></i> 3 Weeks</div>
+          <div class="info-item"><i class="fa-solid fa-gears"></i> Unreal Engine 5</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>Game [Template]</h3>
+        <p>This is my version of a game template, featuring a first-person controller, a robust interaction & inventory system, main & options menus, as well as a game save system. It's stylized to fit my PSX visual style, master materials, characters, animations, shaders, etc. And actively developed according to my needs and art style progression.</p>
+        <a href="/GameTemplate/"
+          aria-label="Learn more about my Game Template">
+          <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+          <span>Learn More</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Project Card 6 -->
+      <div class="project-card" onclick="openProject('evacuation.html')">
+      <div class="video-container">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="./assets/videos/metro_short.webm" type="video/webm">
+        </video>
+        <div class="info-bar">
+          <div class="info-item"><i class="fa-solid fa-users"></i> 1</div>
+          <div class="info-item"><i class="fa-solid fa-clock"></i> 3 Weeks</div>
+          <div class="info-item"><i class="fa-solid fa-gears"></i> Unreal Engine 5</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>Metro [Scene]</h3>
+        <p>A PSX-style Athens metro scene fully modeled in Blender and turned into a walkable interactive experience in Unreal Engine. It features a train replica I modeled and is fully sound-designed with an immersive 3D soundscape.</p>
+        <a href="https://anastasismarinos.itch.io/metro-scene"><i class="fab fa-itch-io" aria-hidden="true"></i><span>View on Itch.io</span></a>
+      </div>
+    </div>
+
+    <!-- Project Card 9 -->
+      <div class="project-card" onclick="openProject('evacuation.html')">
+      <div class="video-container">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="./assets/videos/ourwildestdays_short.webm" type="video/webm">
+        </video>
+        <div class="info-bar">
+          <div class="info-item"><i class="fa-solid fa-users"></i> 1</div>
+          <div class="info-item"><i class="fa-solid fa-clock"></i> 3 Days</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>Our Wildest Days</h3>
+        <p>This is a cutscene made in Unreal Engine, recreating a scene from the movie Our Wildest Days, obviously in PSX-style.</p>
+        <a href="https://youtu.be/0XYNNPSBsyQ"><i class="fab fa-youtube" aria-hidden="true"></i><span>Watch on YouTube</span></a>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-preview">
+    <h2>About Me</h2>
+    <div class="about-profile">
+      <h3>Personal Profile</h3>
+      <p>
+        I'm an Unreal Engine Developer/Designer from Greece with lots of experience in Blueprints and C++, designing and bringing to life various game concepts. Comfortable with game optimization, as well as documenting code and maintaining clean version control (Git/Perforce), to keep colleagues aligned. I’m an adaptable all-rounder with practical 3D and audio skills (Blender modeling, GIMP texturing, FL Studio/Audacity for sound). My goal is to blend cinematography in games without interrupting the gameplay loop with cutscenes.
+      </p>
+    </div>
+    <button onclick="location.href='/about/'"><i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i><span>Learn More</span></button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-left">
+      <p>© 2025 Anastasis Marinos.</p>
+      <p>All rights reserved.</p>
+    </div>
+    <div class="footer-center">
+      <div class="icons-container">
+        <a href="https://www.youtube.com/@anastasismarinos" target="_blank" rel="noopener" aria-label="Youtube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://anastasismarinos.itch.io" target="_blank" rel="noopener" aria-label="Itch.io">
+          <i class="fab fa-itch-io"></i>
+        </a>
+        <a href="https://github.com/AnastasisMarinos" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/anastasismarinos/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <form action="https://formspree.io/f/xanovkyp" method="POST" class="contact-form">
+      <input type="email" name="email" placeholder="example@mail.com" required>
+      <textarea name="message" placeholder="Example message..." required></textarea>
+      <button type="submit"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i><span>Contact Me</span></button>
+      </form>
+    </div>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script defer src="./scripts/script.js"></script>
+</body>
+</html>
