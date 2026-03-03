@@ -1068,3 +1068,56 @@ h1, h2, h3 { color: var(--text-bright); }
   margin-top: 28px; /* match section vertical rhythm */
   transform: none;  /* no negative lift; keep clear of cards */
 }
+
+/* Left column wrapper */
+.project-page .details-grid .left {
+  display: grid;
+  row-gap: 24px;
+}
+
+/* Work Experience styling */
+.project-page .work-card .job {
+  margin-top: 20px;
+}
+
+.project-page .work-card .job-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.project-page .work-card .job-location {
+  color: var(--text-bright);
+  font-size: 0.9rem;
+}
+
+.project-page .work-card .job-date {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: var(--text-bright);
+}
+
+.project-page .work-card .job-role {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-bright);
+}
+
+.project-page .work-card ul {
+  padding-left: 18px;
+  margin-top: 6px;
+}
+
+.project-page .work-card li {
+  margin-bottom: 6px;
+}
+
+/* Ensure work experience body text matches other cards */
+.project-page .work-card,
+.project-page .work-card p,
+.project-page .work-card li,
+.project-page .work-card strong {
+  color: var(--text-bright);
+}

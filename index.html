@@ -60,7 +60,7 @@
   <!-- Hero Section -->
   <section class="hero">
     <video autoplay muted loop preload="auto">
-      <source src="./assets/videos/background.mp4" type="video/mp4" />
+      <source src="./assets/videos/background.webm" type="video/webm" />
       Your browser does not support the video tag.
     </video>
     <div class="video-overlay"></div>
@@ -82,6 +82,29 @@
   <section class="projects" id="projects">
     <h2>My Projects</h2>
     <div class="projects-grid">
+
+    <!-- Project Card 1 -->
+      <div class="project-card" onclick="openProject('evacuation.html')">
+      <div class="video-container">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="./assets/videos/shipevac_short.webm" type="video/webm">
+        </video>
+        <div class="info-bar">
+          <div class="info-item"><i class="fa-solid fa-users"></i> 2</div>
+          <div class="info-item"><i class="fa-solid fa-clock"></i> 6 Months</div>
+          <div class="info-item"><i class="fa-solid fa-gears"></i> Unreal Engine 5</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>Ship Evacuation Simulator</h3>
+        <p>Lead developer of an Unreal Engine–based maritime evacuation simulation tool, compliant with IMO standards and validated against all 12 benchmark scenarios. Implemented multi-agent AI, NavMesh pathfinding, collision avoidance, and dynamic sensor-driven rerouting to model realistic, congestion-aware evacuations.</p>
+        <a href="/ShipEvacuationSimulator/"
+          aria-label="Learn more about Ship Evacuation Simulator">
+          <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+          <span>Learn More</span>
+        </a>
+      </div>
+    </div>
 
 
     <!-- Project Card 3 -->
