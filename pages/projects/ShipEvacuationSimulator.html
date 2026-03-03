@@ -79,7 +79,7 @@ permalink: /ShipEvacuationSimulator/
       <div class="video-embed" role="group" aria-label="Embedded YouTube player">
         <!-- Replace VIDEO_ID with your actual YouTube video ID or full embed URL -->
         <iframe
-          src=""
+          src="https://www.youtube.com/embed/CnwrJpSEqRs?si=ZAbBF_7h3codc8Gi"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
@@ -94,34 +94,39 @@ permalink: /ShipEvacuationSimulator/
         <div class="card">
           <h3>How It Was Built</h3>
           <p>
-            Developed in UE5 using EOS for peer-to-peer multiplayer. This project features a full asymmetrical horror gameplay loop.
+            The Ship Evacuation Simulator was developed in Unreal Engine 5 using a hybrid architecture that combines Blueprint-driven system orchestration with performance-critical systems implemented in C++.
           </p>
           <p>
-            This project is an asymmetrical horror prototype built in Unreal Engine 5 using a clean separation between visual logic (Blueprints/UI) and core gameplay systems (C++). The core loop is modeled after Dead by Daylight: survivors repair generators, power the exit, heal each other, and avoid being caught and hooked by the killer.
+            Vessel geometry is modeled externally and imported into UE5, where a Navigation Mesh (NavMesh) is generated to define all valid walkable areas. Passenger agents compute routes to their assigned muster stations using graph-based pathfinding algorithms (A* and Dijkstra) operating directly on the NavMesh.
           </p>
           <p>
-            Most gameplay rules — interaction flow, survivor states (healthy/injured/crawling/carried/hooked), health progression, generator repair and sabotage, hook and wiggle logic, etc. — are implemented and replicated in C++ components. Those components drive authoritative game state on the server, and then push cosmetic/UI updates to clients. That includes survivor health bars, skill checks, action progress bars, and endgame triggers (survivors escape vs. killer wins).
+            To produce realistic pedestrian dynamics, the system integrates Unreal Engine’s built-in Reciprocal Velocity Obstacles (RVO) implementation together with the Detour Crowd Manager. This hybrid approach enables continuous-space movement, smooth local avoidance, and stable behaviour under dense crowd conditions such as staircases and narrow corridors.
           </p>
           <p>
-            The match flow runs on Epic Online Services (EOS). The server creates or joins EOS sessions, assigns one player as the killer and the rest as survivors, and replicates win conditions. All survivors are dead vs. the exit powered and survivors escaped.
+            Each agent is initialized according to demographic distributions defined by the 
+            <strong>MSC.1/Circ.1533 – Revised Guidelines on Evacuation Analysis for Passenger Ships</strong> issued by the 
+            <strong>International Maritime Organization</strong>. Movement attributes include walking speed on flat terrain, stair ascent/descent modifiers, acceleration ramp-up profiles, awareness delay, and personal space radius constraints.
           </p>
+          <p>
+            All twelve IMO benchmark scenarios were implemented directly inside the simulator as reusable validation modules. These include corridor walking speed tests, staircase flow, exit flow rates, counterflow, density–flow relationships, and demographic parameter verification. Multiple stochastic runs can be executed in batch mode, with aggregated statistical outputs (average, range, 95th percentile).
+          </p>
+
           <h3>Why</h3>
           <p>
-            The goal of this project was to learn by recreating the full loop of an online asymmetrical horror game: networking, authority, session management, replicated combat, and interaction systems. I wanted to build something more complex than a “simple demo” and closer to an actual multiplayer game that I can experience with my friends.
+            Passenger vessel evacuation presents complex challenges due to multi-deck layouts, vertical circulation bottlenecks, and high occupancy densities. Many traditional evacuation tools operate under static assumptions with limited visualization capabilities.
           </p>
           <p>
-            Long-term, the goal is to turn this into a reusable asymmetric horror template. The plan is to replace any copyrighted placeholder content (like the Silent Hill: Midwich Elementary map and Pyramid Head killer) and ship a clean, original base that other devs can build on.
+            This project was developed to create a regulatory-aligned evacuation platform inside a modern real-time engine, combining validated pedestrian modelling with high-fidelity visualization. The goal is to bridge the gap between compliance-focused simulation and dynamic, visually interpretable evacuation analysis.
+          </p>
+          <p>
+            Long-term development includes hazard-aware routing (fire, smoke, flooding), vessel heel and trim simulation, adaptive path recalculation under blocked exits, and integration with live data sources for real-time evacuation management.
           </p>
           <h3>Built With</h3>
           <p>
-            • Unreal Engine 5 (C++ gameplay framework + Blueprint-driven UI)<br>
-            • Epic Online Services (sessions, lobbies, online identity, player presence)<br>
-            • Niagara for hit / blood particle effects and generator VFX<br>
-            • Custom movement components for both Survivor and Killer (sprint, crawl, stun states)<br>
-            • Replicated animation montage system for melee, carry, hook, etc.<br>
-            • Blender for modeling and kitbashing level content<br>
-            • Retro PSX-style art direction (low poly, crunchy textures, heavy atmosphere)<br>
-            • FL Studio for sound effects and audio work
+            • Unreal Engine 5 (Blueprints + C++)<br>
+            • RVO (Reciprocal Velocity Obstacles)<br>
+            • Detour Crowd Manager<br>
+            • Blender 4.1 (vessel geometry modelling)<br>
           </p>
         </div>
         <div class="right">
@@ -136,7 +141,10 @@ permalink: /ShipEvacuationSimulator/
           </aside>
           <!-- Links sit directly below the Quick Facts within the right column -->
           <div class="details-links links" aria-label="Project Links">
-            <a href="./assets/documents/TRA_2026_Paper.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span>Read Research Paper</span></a>
+            <a class="link-btn" href="./assets/documents/TRA_2026_Paper.pdf" target="_blank" rel="noopener">
+              <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+              <span>Read Research Paper</span>
+            </a>
           </div>
         </div>
       </div>
@@ -149,143 +157,23 @@ permalink: /ShipEvacuationSimulator/
         <div class="screenshots-wrap">
           <div class="screenshots-carousel" role="region" aria-label="Screenshot carousel">
             <!-- Use your own screenshots in assets/images/projects/... -->
-            <img class="slide active" src="../../assets/images/SS_1.png" alt="Screenshot 1" loading="eager" />
-            <img class="slide" src="../../assets/images/SS_2.png" alt="Screenshot 2" loading="lazy" />
-            <img class="slide" src="../../assets/images/SS_3.png" alt="Screenshot 3" loading="lazy" />
+            <img class="slide active" src="../../assets/images/SS_13.webp" alt="Screenshot 1" loading="eager" />
+            <img class="slide" src="../../assets/images/SS_14.webp" alt="Screenshot 2" loading="lazy" />
+            <img class="slide" src="../../assets/images/SS_15.webp" alt="Screenshot 3" loading="lazy" />
+            <img class="slide" src="../../assets/images/SS_16.webp" alt="Screenshot 4" loading="lazy" />
           </div>
           <button class="carousel-btn prev" aria-label="Previous screenshot" type="button"></button>
           <button class="carousel-btn next" aria-label="Next screenshot" type="button"></button>
         </div>
       </div>
     </section>
-
-    <!-- Code Examples -->
-    <section class="section" aria-labelledby="code-title">
-      <h2 id="code-title">Code Examples</h2>
-      <div class="container">
-        <h3>Part Of Survivor Character</h3>
-<pre><code>void ASurvivorCharacter::BeginPlay()
-{
-	Super::BeginPlay();
-
-	if (HasAuthority())
-	{
-		if (APlayerGameState* GS = GetWorld()->GetGameState<APlayerGameState>())
-		{
-			GS->RegisterSurvivor(this);
-		}
-	}
-
-	if (HealthComponent)
-	{
-		HealthComponent->OnHealthStateChanged.AddDynamic(this, &ASurvivorCharacter::OnHealthStateChanged);
-	}
-
-	if (SkillCheckComponent)
-	{
-		SkillCheckComponent->OnStartNotify.AddDynamic(this, &ASurvivorCharacter::NotifySkillCheck);
-		SkillCheckComponent->OnFail.AddDynamic(this, &ASurvivorCharacter::FailSkillCheck);
-		SkillCheckComponent->OnSuccess.AddDynamic(this, &ASurvivorCharacter::SucceedSkillCheck);
-		SkillCheckComponent->OnGreat.AddDynamic(this, &ASurvivorCharacter::GreatSkillCheck);
-		SkillCheckComponent->OnStartSkillCheck.AddDynamic(this, &ASurvivorCharacter::StartSkillCheck);
-		SkillCheckComponent->OnUpdateFailTimer.AddDynamic(this, &ASurvivorCharacter::UpdateFailTime);
-	}
-}
-
-void ASurvivorCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
-{
-	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-
-	DOREPLIFETIME(ASurvivorCharacter, bIsRepairing);
-	DOREPLIFETIME(ASurvivorCharacter, bIsPoweringGates);
-	DOREPLIFETIME(ASurvivorCharacter, bIsBeingHealed);
-	DOREPLIFETIME(ASurvivorCharacter, bIsHealingOther);
-	DOREPLIFETIME(ASurvivorCharacter, PlayMontageInfo);
-}
-
-// React to health state changes.
-void ASurvivorCharacter::OnHealthStateChanged(EHealthState NewState)
-{
-	switch (NewState)
-	{
-	case EHealthState::Carried:
-		{
-			// When picked up by the killer: force out of crawl, disable collisions and movement,
-			// and attach to the killer’s mesh (carry socket) once we have the reference.
-			if (SurvivorMovement) { SurvivorMovement->SetCrawl(false); }
-
-			GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-			if (UCharacterMovementComponent* CM = GetCharacterMovement())
-			{
-				CM->StopMovementImmediately();
-				CM->SetMovementMode(MOVE_None);
-				CM->Deactivate();
-			}
-
-			if (AKillerCharacter* Killer = HealthComponent ? HealthComponent->GetActiveKiller() : nullptr)
-			{
-				if (USkeletalMeshComponent* KMesh = Killer->GetMesh())
-				{
-					AttachToComponent(KMesh,
-						FAttachmentTransformRules::SnapToTargetNotIncludingScale,
-						TEXT("carry_socket"));
-				}
-			}
-			break;
-		}
-	case EHealthState::Hooked:
-	{
-		// While hooked, attach to the hook mesh (socket), disable movement & collision,
-		// and make sure we are not in crawl mode anymore.
-		AHook* CurrentHook = HealthComponent ? HealthComponent->GetActiveHook() : nullptr;
-		if (CurrentHook && CurrentHook->HookMesh)
-		{
-			DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-			AttachToComponent(CurrentHook->HookMesh, FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("hook_socket"));
-			GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-			GetCharacterMovement()->SetMovementMode(MOVE_None);
-			GetCharacterMovement()->Deactivate();
-		}
-		if (SurvivorMovement) { SurvivorMovement->SetCrawl(false); }
-		break;
-	}
-	case EHealthState::Crawling:
-	{
-		// On the ground: enable crawl locomotion, re-enable movement/collision, and detach from anything.
-		if (SurvivorMovement) { SurvivorMovement->SetCrawl(true); }
-		DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-		GetCharacterMovement()->SetMovementMode(MOVE_Walking);
-		GetCharacterMovement()->Activate();
-		break;
-	}
-	default:
-	{
-		// Healthy/Injured baseline: ensure normal walking and collisions, detach from sockets,
-		// and force a network update to quickly inform other clients of our new mode.
-		DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-		SetReplicateMovement(true);
-		ForceNetUpdate();
-		GetCharacterMovement()->StopMovementImmediately();
-		GetCharacterMovement()->ClearAccumulatedForces();
-		GetCharacterMovement()->SetMovementMode(MOVE_Walking);
-		GetCharacterMovement()->Activate();
-		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-		if (SurvivorMovement) { SurvivorMovement->SetCrawl(false); }
-		break;
-	}
-	}
-}</code></pre>
-      </div>
-    </section>
-
   </main>
 
   <!-- Footer -->
   <footer class="footer" id="footer">
   <div class="container">
     <div class="footer-left">
-      <p>© 2025 Anastasis Marinos.</p>
+      <p>© 2026 Anastasis Marinos.</p>
       <p>All rights reserved.</p>
     </div>
     <div class="footer-center">
